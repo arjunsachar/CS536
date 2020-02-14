@@ -13,24 +13,25 @@ public class P2 {
 	public static void main(String[] args) throws IOException {
                                            // exception may be thrown by yylex
         // test all tokens
-        testAllTokens();
-        CharNum.num = 1;
-        
-        testID();
-        CharNum.num = 1;
-        
-        testIntLit();
-        CharNum.num = 1;
-        
-        testStringLit();
-        CharNum.num = 1;
-        
         testCharLine();
         CharNum.num = 1;
         
         testEndOfFile();
         CharNum.num = 1;
 
+        testAllTokens(allTokens.in, allTokens.out);
+        CharNum.num = 1;
+        
+        testID(testID, testID.out);
+        CharNum.num = 1;
+        
+        testIntLit(testIntLit.in, testIntLit.out);
+        CharNum.num = 1;
+        
+        testStringLit(testStringLit.in, testStringLit.out);
+        CharNum.num = 1;
+        
+        
         // ADD CALLS TO OTHER TEST METHODS HERE
     }
 
@@ -169,7 +170,7 @@ public class P2 {
 		Symbol token = scanner.next_token();
 		while (token.sym != sym.EOF) {
 			if (token.sym == sym.ID) {
-				String currID = ((IdTokenVal) token.value).idVal;
+				String currID = ((IdTokenVal)token.value).idVal;
 				outFile.println(currID);
 			}
 			token = scanner.next_token();
@@ -198,7 +199,7 @@ public class P2 {
 		Symbol token = scanner.next_token();
 		while (token.sym != sym.EOF) {
 			if (token.sym == sym.INTLITERAL) {
-				int currIntLit = ((IntLitTokenVal) token.value).intVal;
+				int currIntLit = ((IntLitTokenVal)token.value).intVal;
 				outputFile.println(currIntLit);
 			}
 			token = scanner.next_token();
