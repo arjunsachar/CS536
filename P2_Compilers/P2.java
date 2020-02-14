@@ -18,9 +18,116 @@ public class P2 {
     
         // ADD CALLS TO OTHER TEST METHODS HERE
     }
+     /*
+     * 
+     */
+    private static void charLineTest() throws IOException {
+    	
+    	//Declares a new instance of the FileReader type called Filein to read character files
+    	FileReader inputFile = null;
+    	//Declares a new instance of the PrintWriter type called outputFile to print the output
+    	PrintWriter outputFile = null; 
+
+    	//Must put file reader in try/catch to adhere for instance when the file is not found
+    	try {
+    			//Sets the input file to read the EndOfFile
+    			inputFile = new FileReader("inputCharLine.in");
+    			
+    			//Printwriter is getting the character for FileWriter to write to EndOfFile.out
+    			outputFile = new PrintWriter(new FileWriter("inputCharLine.out"));
+    	}
+    	//Catches the instance when the file isn't found
+    	catch (FileNotFoundException ex) {
+    		//Prints a error message and exits
+            System.err.println("The file inputCharLine cannot be found.");
+            System.exit(-1);
+        } catch (IOException ex) {
+        	//Prints a error message and exits
+            System.err.println("inputCharLine.out cannot be opened.");
+            System.exit(-1);
+        }
+    	//Creates the scanner
+    	Yylex scanner = new Yylex(inFile);
+    	
+    	//Scanner that gets the next token available
+        Symbol token = scanner.next_token();
+        
+        //While loops that goes through the file
+        while (token.sym != sym.EOF) 
+        {
+        	/*This writes to the output file and writes the character number of the current token, 
+        	 * the line number of this current token and the symbol that it corresponds to
+        	 */
+        	outputFile.println(((TokenVal)token.value).charnum + "(" + ((TokenVal)token.value).linenum + ")  sym # : " + token.sym); 
+        	//Sets the token to the next token the scanner finds
+        	token = scanner.next_token();
+        }
+
+        //Closes the file
+        outFile.close();
+        }
+
+    /*
+     * 
+     */
+    private static void endOfFileTest() throws IOException {
+    	
+    	//Declares a new instance of the FileReader type called Filein to read character files
+    	FileReader inputFile = null;
+    	//Declares a new instance of the PrintWriter type called outputFile to print the output
+    	PrintWriter outputFile = null; 
+
+    	//Must put file reader in try/catch to adhere for instance when the file is not found
+    	try {
+    			//Sets the input file to read the EndOfFile
+    			inputFile = new FileReader("EndOfFile.in");
+    			
+    			//Printwriter is getting the character for FileWriter to write to EndOfFile.out
+    			outputFile = new PrintWriter(new FileWriter("EndOfFile.out"));
+    	}
+    	
+    	//Catches the instance when the file isn't found
+    	catch (FileNotFoundException ex) {
+    		//Prints a error message and exits
+            System.err.println("The file EndOfFile cannot be found.");
+            System.exit(-1);
+        } catch (IOException ex) {
+        	//Prints a error message and exits
+            System.err.println("EndofFile.out cannot be opened.");
+            System.exit(-1);
+        }
+    	//Creates the scanner
+    	Yylex scanner = new Yylex(inFile);
+    	
+    	//Scanner that gets the next token available
+        Symbol token = scanner.next_token();
+        
+        //While loops that goes through the file
+        while (token.sym != sym.EOF) 
+        {
+        	//Sets the token to the next token the scanner finds
+        	token = scanner.next_token();
+        	
+        	//Breaks out if end of file reached
+        	if(token.sym == sym.EOF)
+        	{
+        		break;
+        	}
+        }
+        //Checks to see if End of File reached
+        if(token.sym == sym.EOF)
+    	{
+        	 outputFile.println("Gotten to the end of the file");
+    	}
+        
+        //Closes the file
+        outFile.close();
+        }
+    	
+	
     
     
-    
+   
     /*
      * test string lit
      * test int lit
