@@ -1,0 +1,6 @@
+"stringlit with many random symbols 1^%4#@)()"
+"this is a stringlit with complicated commands \? ESCAPE\n\t  \\ \"\'"
+"this string doesnt end and therefore shouldn't be a literal
+"this is a terminated string \y\ljdertfjd \t \m this also has bad escape \m"
+"this also has a bad escape \a \" \u
+this shouldnt work
