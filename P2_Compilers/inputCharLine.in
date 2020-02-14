@@ -1,0 +1,18 @@
+bool int void true false 
+struct cin cout if 
+else while return
+{ } ( ) , . = ; + - * / 
+! < > ++ -- && || == != 
+<= >= { << >>
+testid testid2 testid3
+/// comment example
+## Another version of comment
+"line with /n" 
+"line with no escape" "another line"
+"line number 7" 
+"line 8" "line 8 second" "line 8 third" "Line 8 fourth"
+160
+100
+200
+"  string after two spaces"
+     
